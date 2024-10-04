@@ -7,20 +7,23 @@ function copiarTexto() {
 }
 
 function transformarTextoComPontuacao(texto) {
-    var linhas = texto.split('\n');
-    var textoFormatado = '';
-    linhas.forEach(function (linha, index) {
-        var frase = linha.replace(/^\d+\.\s*/, '').trim();
-        frase = frase.replace('.', '')
+    if (texto != '') {
+        var linhas = texto.split('\n');
+        var textoFormatado = '';
+        linhas.forEach(function (linha, index) {
+            var frase = linha.replace(/^\d+\.\s*/, '').trim();
+            frase = frase.replace('.', '')
 
-        if (index === linhas.length - 1) {
-            textoFormatado += '✅ ' + frase + '.';
-        } else {
-            textoFormatado += '✅ ' + frase + ';\n';
-        }
+            if (index === linhas.length - 1) {
+                textoFormatado += '✅ ' + frase + '.';
+            } else {
+                textoFormatado += '✅ ' + frase + ';\n';
+            }
 
-    });
-    return textoFormatado;
+        });
+        return textoFormatado;
+    }
+    return ''
 }
 
 function generateValue() {
