@@ -11,11 +11,14 @@ function transformarTextoComPontuacao(texto) {
     var textoFormatado = '';
     linhas.forEach(function (linha, index) {
         var frase = linha.replace(/^\d+\.\s*/, '').trim();
+        frase = frase.replace('.', '')
+
         if (index === linhas.length - 1) {
             textoFormatado += '✅ ' + frase + '.';
         } else {
             textoFormatado += '✅ ' + frase + ';\n';
         }
+
     });
     return textoFormatado;
 }
@@ -31,9 +34,7 @@ function generateValue() {
 
     let generate = `
 ${loc} - LAGOA SANTA/MG
-
-${desc}
-
+${desc !== '' ? '\n' + desc + '\n' : ''}
 Código do imóvel: ${cod}
 
 CARACTERÍSTICAS PRINCIPAIS:
@@ -51,5 +52,5 @@ Avenida Acadêmico Nilo Figueiredo, 3273, Santos Dumont II, Lagoa Santa/MG
     `;
 
     let area = document.getElementById('conteudo');
-    area.value = generate;  // Usar value em vez de innerText para textarea
+    area.value = generate;
 }
