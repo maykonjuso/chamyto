@@ -39,7 +39,7 @@ Código do imóvel: ${cod}
 
 CARACTERÍSTICAS PRINCIPAIS:
 
-${carac}
+${carac !== '' ? '\n' + carac + '\n' : ''}
 
 Área Total: ${areatotal} m²
 Área Privada: ${areaprivada} m²
